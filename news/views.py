@@ -9,10 +9,6 @@ def welcome(request):
 
 
 
-def news_of_day(request):
-    date = dt.date.today()
-    return render(request, 'all-news/today-news.html', {"date": date,})
-
 def past_days_news(request,past_date):
 
     try:
@@ -25,7 +21,7 @@ def past_days_news(request,past_date):
         assert False
 
     if date == dt.date.today():
-        return redirect(news_of_day)
+        return redirect(news_today)
 
     return render(request, 'all-news/past-news.html', {"date": date})
 
