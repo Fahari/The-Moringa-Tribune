@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     # 'news',
     'bootstrap3',
     'rest_framework',
+    'rest_framework.authtoken',
     'tinymce',
     'news.apps.NewsConfig',
     'django.contrib.admin',
@@ -45,6 +46,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
 
 #Emails
 EMAIL_USE_TLS = config('EMAIL_USE_TLS')
